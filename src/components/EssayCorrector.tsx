@@ -813,11 +813,10 @@ ${compiledEssay}`
               <input
                 id="title"
                 type="text"
-                className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
+                className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 placeholder="제목을 입력하시오"
                 value={essayStructure.title}
                 onChange={(e) => handleInputChange('title', e.target.value)}
-                disabled={!!correctionResult}
               />
             </div>
             
@@ -827,12 +826,11 @@ ${compiledEssay}`
               </label>
               <textarea
                 id="introduction"
-                className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 min-h-[100px] disabled:bg-gray-100 disabled:cursor-not-allowed"
+                className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 min-h-[100px]"
                 placeholder="1. 글의 시작을 여는 인사말 작성
 2. 글의 전체 방향 암시"
                 value={essayStructure.introduction}
                 onChange={(e) => handleInputChange('introduction', e.target.value)}
-                disabled={!!correctionResult}
               />
               {renderIntroductionCorrection()}
             </div>
@@ -863,11 +861,10 @@ ${compiledEssay}`
                       </label>
                       <textarea
                         id={`opinion-${section.id}`}
-                        className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 min-h-[80px] disabled:bg-gray-100 disabled:cursor-not-allowed"
-                        placeholder="자신이 전하고자 하는 의견 작성"
+                        className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 min-h-[100px]"
+                        placeholder="자신의 의견을 작성하시오"
                         value={section.opinion}
                         onChange={(e) => handleOREOInputChange(section.id, 'opinion', e.target.value)}
-                        disabled={!!correctionResult}
                       />
                       {correctionResult && renderBodyOCorrection(index)}
                     </div>
@@ -878,11 +875,10 @@ ${compiledEssay}`
                       </label>
                       <textarea
                         id={`reason-${section.id}`}
-                        className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 min-h-[80px] disabled:bg-gray-100 disabled:cursor-not-allowed"
-                        placeholder="의견을 뒷받침하는 이유와 근거 작성"
+                        className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 min-h-[100px]"
+                        placeholder="의견을 뒷받침하는 이유를 작성하시오"
                         value={section.reason}
                         onChange={(e) => handleOREOInputChange(section.id, 'reason', e.target.value)}
-                        disabled={!!correctionResult}
                       />
                       {correctionResult && renderBodyRCorrection(index)}
                     </div>
@@ -893,11 +889,10 @@ ${compiledEssay}`
                       </label>
                       <textarea
                         id={`example-${section.id}`}
-                        className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 min-h-[80px] disabled:bg-gray-100 disabled:cursor-not-allowed"
-                        placeholder="자신의 의견과 관련된 구체적 사례나 예시 작성"
+                        className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 min-h-[100px]"
+                        placeholder="의견을 뒷받침하는 예시를 작성하시오"
                         value={section.example}
                         onChange={(e) => handleOREOInputChange(section.id, 'example', e.target.value)}
-                        disabled={!!correctionResult}
                       />
                       {correctionResult && renderBodyECorrection(index)}
                     </div>
@@ -908,11 +903,10 @@ ${compiledEssay}`
                       </label>
                       <textarea
                         id={`reemphasis-${section.id}`}
-                        className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 min-h-[80px] disabled:bg-gray-100 disabled:cursor-not-allowed"
-                        placeholder="자신의 의견 다시 강조"
+                        className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 min-h-[100px]"
+                        placeholder="의견을 다시 한 번 강조하여 작성하시오"
                         value={section.reemphasis}
                         onChange={(e) => handleOREOInputChange(section.id, 'reemphasis', e.target.value)}
-                        disabled={!!correctionResult}
                       />
                       {correctionResult && renderBodyO2Correction(index)}
                     </div>
@@ -940,12 +934,11 @@ ${compiledEssay}`
               </label>
               <textarea
                 id="conclusion"
-                className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 min-h-[100px] disabled:bg-gray-100 disabled:cursor-not-allowed"
-                placeholder="1. 본론에 나왔던 내용 요약 정리
+                className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 min-h-[100px]"
+                placeholder="1. 본론에서 나온 내용 요약
 2. 글을 끝맺는 마무리말 작성"
                 value={essayStructure.conclusion}
                 onChange={(e) => handleInputChange('conclusion', e.target.value)}
-                disabled={!!correctionResult}
               />
               {renderConclusionCorrection()}
             </div>
