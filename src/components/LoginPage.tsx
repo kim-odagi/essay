@@ -15,11 +15,14 @@ const TEST_ACCOUNTS = {
 const LoginPage: React.FC<LoginProps> = ({ onLogin }) => {
   const [studentId, setStudentId] = useState('');
   const [name, setName] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+    setError('');
+
     if (!studentId || !name) {
+      setError('모든 필드를 입력해주세요.');
       return;
     }
 
@@ -85,6 +88,12 @@ const LoginPage: React.FC<LoginProps> = ({ onLogin }) => {
                 />
               </div>
             </div>
+
+            {error && (
+              <div className="text-red-500 text-sm mt-2">
+                {error}
+              </div>
+            )}
 
             <div>
               <button
