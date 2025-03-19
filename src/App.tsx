@@ -4,11 +4,14 @@ import EssayCorrector from './components/EssayCorrector';
 import LoginPage from './components/LoginPage';
 import StudentHome from './components/StudentHome';
 
-type UserType = 'student' | 'admin';
+type UserType = 'student';
 
 interface User {
   type: UserType;
-  data: any;
+  data: {
+    name: string;
+    studentId: string;
+  };
 }
 
 function App() {
@@ -37,11 +40,7 @@ function App() {
             </div>
             <div className="flex items-center gap-4">
               <div className="text-sm">
-                {user.type === 'student' ? (
-                  <span>{user.data.name} 학생님 환영합니다</span>
-                ) : (
-                  <span>관리자님 환영합니다</span>
-                )}
+                <span>{user.data.name} 학생님 환영합니다</span>
               </div>
               <button 
                 onClick={handleLogout}
@@ -55,35 +54,18 @@ function App() {
         
         <main className="container mx-auto py-8 px-4">
           <Routes>
-            {user.type === 'student' ? (
-              <>
-                <Route 
-                  path="/" 
-                  element={
-                    <StudentHome 
-                      studentName={user.data.name} 
-                      studentId={user.data.studentId} 
-                    />
-                  } 
+            <Route 
+              path="/" 
+              element={
+                <StudentHome 
+                  studentName={user.data.name} 
+                  studentId={user.data.studentId} 
                 />
-                <Route path="/essay/new" element={<EssayCorrector />} />
-                <Route path="/essay/:id" element={<EssayCorrector />} />
-                <Route path="*" element={<Navigate to="/" replace />} />
-              </>
-            ) : (
-              <>
-                <Route 
-                  path="/" 
-                  element={
-                    <div className="bg-white p-6 rounded-lg shadow-md">
-                      <h2 className="text-xl font-bold mb-4">관리자 페이지</h2>
-                      <p>관리자 기능은 아직 개발 중입니다.</p>
-                    </div>
-                  } 
-                />
-                <Route path="*" element={<Navigate to="/" replace />} />
-              </>
-            )}
+              } 
+            />
+            <Route path="/essay/new" element={<EssayCorrector />} />
+            <Route path="/essay/:id" element={<EssayCorrector />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
         
